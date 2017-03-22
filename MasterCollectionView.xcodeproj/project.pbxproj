@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		15B2553F9BB7C98A1405F302 /* Pods_MasterCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B7951AD72785146894DF72 /* Pods_MasterCollectionView.framework */; };
+		EE1B0E6E1E82AA3700CC2279 /* RootTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B0E6D1E82AA3700CC2279 /* RootTableViewController.swift */; };
+		EE1B0E701E82AD8F00CC2279 /* MovableScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1B0E6F1E82AD8F00CC2279 /* MovableScrollViewController.swift */; };
 		EE2FBB031E5DE7B700DAB188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FBB021E5DE7B700DAB188 /* AppDelegate.swift */; };
 		EE2FBB051E5DE7B700DAB188 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2FBB041E5DE7B700DAB188 /* ViewController.swift */; };
 		EE2FBB081E5DE7B700DAB188 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2FBB061E5DE7B700DAB188 /* Main.storyboard */; };
@@ -18,9 +20,11 @@
 /* Begin PBXFileReference section */
 		B94AC497352BE700544F13CF /* Pods-MasterCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterCollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-MasterCollectionView/Pods-MasterCollectionView.release.xcconfig"; sourceTree = "<group>"; };
 		CB390FBC300A0BB7C737E967 /* Pods-MasterCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MasterCollectionView/Pods-MasterCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
+		EE1B0E6D1E82AA3700CC2279 /* RootTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTableViewController.swift; sourceTree = "<group>"; };
+		EE1B0E6F1E82AD8F00CC2279 /* MovableScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovableScrollViewController.swift; sourceTree = "<group>"; };
 		EE2FBAFF1E5DE7B700DAB188 /* MasterCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE2FBB021E5DE7B700DAB188 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EE2FBB041E5DE7B700DAB188 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EE2FBB041E5DE7B700DAB188 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		EE2FBB071E5DE7B700DAB188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE2FBB091E5DE7B700DAB188 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE2FBB0C1E5DE7B800DAB188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +61,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EE1B0E6C1E82AA0500CC2279 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EE2FBB041E5DE7B700DAB188 /* ViewController.swift */,
+				EE1B0E6D1E82AA3700CC2279 /* RootTableViewController.swift */,
+				EE1B0E6F1E82AD8F00CC2279 /* MovableScrollViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		EE2FBAF61E5DE7B700DAB188 = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +92,8 @@
 		EE2FBB011E5DE7B700DAB188 /* MasterCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				EE1B0E6C1E82AA0500CC2279 /* Controllers */,
 				EE2FBB021E5DE7B700DAB188 /* AppDelegate.swift */,
-				EE2FBB041E5DE7B700DAB188 /* ViewController.swift */,
 				EE2FBB061E5DE7B700DAB188 /* Main.storyboard */,
 				EE2FBB091E5DE7B700DAB188 /* Assets.xcassets */,
 				EE2FBB0B1E5DE7B700DAB188 /* LaunchScreen.storyboard */,
@@ -212,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1B0E701E82AD8F00CC2279 /* MovableScrollViewController.swift in Sources */,
 				EE2FBB051E5DE7B700DAB188 /* ViewController.swift in Sources */,
+				EE1B0E6E1E82AA3700CC2279 /* RootTableViewController.swift in Sources */,
 				EE2FBB031E5DE7B700DAB188 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +393,7 @@
 				EE2FBB131E5DE7B800DAB188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

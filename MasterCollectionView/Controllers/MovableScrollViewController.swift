@@ -10,18 +10,20 @@ import UIKit
 
 class MovableScrollViewController: UIViewController {
 
-    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var bgImageHeightConstraint: NSLayoutConstraint!
     
     var panBeginLocation: CGPoint = CGPoint(x: 0, y: 0)
-    let defaultScrollViewInset: UIEdgeInsets = UIEdgeInsetsMake(100, 0, 0, 0)
+    let defaultScrollViewInset: UIEdgeInsets = UIEdgeInsetsMake(184, 0, 0, 0)
+    var isNavigationBarSetup: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupScrollView()
     }
-
+    
 
     // MARK: Internal Methods
     private func setupScrollView() {
@@ -66,6 +68,8 @@ extension MovableScrollViewController: UIScrollViewDelegate {
         else {  // Add back inset and adjust indicator inset according to content offset
             scrollView.contentInset = defaultScrollViewInset
             scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(abs(contentOffsetY), 0, 0, 0)
+            let bgImageHeight = contentOffsetY + 64
+            bgImageHeightConstraint.constant = abs(bgImageHeight < 0 ? bgImageHeight : 0)
         }
     }
 }

@@ -78,7 +78,17 @@ class MovableScrollViewController: UIViewController {
 }
 
 
+
 extension MovableScrollViewController: UIScrollViewDelegate {
+    
+    // MARK: - Internal Methods
+    private func animateTopBarHideShow() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }, completion: { (_) in
+            self.navigationController?.setNavigationBarHidden(self.statusBarShouldHide, animated: true)
+        })
+    }
     
     // MARK: UIScrollViewDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -90,11 +100,7 @@ extension MovableScrollViewController: UIScrollViewDelegate {
             if contentOffsetY > -MovableScrollViewController.defaultScrollViewOffsetY && contentOffsetY < (scrollView.contentSize.height - UIScreen.main.bounds.height) {  // Forbit bouncing to affect staus bar show hide
                 self.lastScrollOffsetY = contentOffsetY
                 statusBarShouldHide = scrollDiffY > 0 ? true : false
-                UIView.animate(withDuration: 0.2, animations: {
-                    self.setNeedsStatusBarAppearanceUpdate()
-                }, completion: { (_) in
-                    self.navigationController?.setNavigationBarHidden(self.statusBarShouldHide, animated: true)
-                })
+                animateTopBarHideShow()
             }
         }
         

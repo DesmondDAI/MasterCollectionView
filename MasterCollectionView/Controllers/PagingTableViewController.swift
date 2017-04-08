@@ -10,28 +10,65 @@ import UIKit
 
 class PagingTableViewController: UIViewController {
 
+    @IBOutlet weak var pagingTableView: UITableView!
+    
+    let miniOffsetBeyondBound: CGFloat = 100
+    var textDataArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupTableView()
+        self.navigationController?.navigationBar.tintColor = .white
+        DataManager.sharedInstance.clearData()
+        requestTextData()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    @IBAction func dismissBtnDidClick(_ sender: UIButton) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    
+    // MARK: - Internal Methods
+    private func setupTableView() {
+        pagingTableView.delegate = self
+        pagingTableView.dataSource = self
+        pagingTableView.estimatedRowHeight = 60
+        pagingTableView.rowHeight = UITableViewAutomaticDimension
+        pagingTableView.tableFooterView = UIView()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func requestTextData() {
+        let newDataArray = DataManager.sharedInstance.generateTextArray(count: 10)
+        textDataArray.append(contentsOf: newDataArray)
+        pagingTableView.reloadData()
     }
-    */
+}
 
+
+extension PagingTableViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    // MARK: - UITableView
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return textDataArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PagingTableViewCell", for: indexPath)
+        cell.textLabel?.text = textDataArray[indexPath.row]
+        
+        return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let pagingThreshold = scrollView.contentSize.height - UIScreen.main.bounds.height + miniOffsetBeyondBound
+        if offsetY > pagingThreshold && !scrollView.isDragging {  // Scroll beyond specific offset & release dragging
+            self.requestTextData()
+        }
+    }
 }

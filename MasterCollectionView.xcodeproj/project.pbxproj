@@ -16,6 +16,7 @@
 		EE2FBB0A1E5DE7B700DAB188 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE2FBB091E5DE7B700DAB188 /* Assets.xcassets */; };
 		EE2FBB0D1E5DE7B800DAB188 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE2FBB0B1E5DE7B700DAB188 /* LaunchScreen.storyboard */; };
 		EE4AD2351E989F2B00046C2E /* PagingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4AD2341E989F2B00046C2E /* PagingTableViewController.swift */; };
+		EE4AD2381E9920DF00046C2E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4AD2371E9920DF00046C2E /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		EE2FBB0C1E5DE7B800DAB188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE2FBB0E1E5DE7B800DAB188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE4AD2341E989F2B00046C2E /* PagingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingTableViewController.swift; sourceTree = "<group>"; };
+		EE4AD2371E9920DF00046C2E /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F2B7951AD72785146894DF72 /* Pods_MasterCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MasterCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 		EE2FBB011E5DE7B700DAB188 /* MasterCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				EE4AD2361E9920CA00046C2E /* Managers */,
 				EE1B0E6C1E82AA0500CC2279 /* Controllers */,
 				EE2FBB021E5DE7B700DAB188 /* AppDelegate.swift */,
 				EE2FBB061E5DE7B700DAB188 /* Main.storyboard */,
@@ -103,6 +106,14 @@
 				EE2FBB0E1E5DE7B800DAB188 /* Info.plist */,
 			);
 			path = MasterCollectionView;
+			sourceTree = "<group>";
+		};
+		EE4AD2361E9920CA00046C2E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EE4AD2371E9920DF00046C2E /* DataManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1B0E701E82AD8F00CC2279 /* MovableScrollViewController.swift in Sources */,
+				EE4AD2381E9920DF00046C2E /* DataManager.swift in Sources */,
 				EE2FBB051E5DE7B700DAB188 /* ViewController.swift in Sources */,
 				EE1B0E6E1E82AA3700CC2279 /* RootTableViewController.swift in Sources */,
 				EE4AD2351E989F2B00046C2E /* PagingTableViewController.swift in Sources */,

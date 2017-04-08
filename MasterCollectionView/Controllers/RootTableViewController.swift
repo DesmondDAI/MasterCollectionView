@@ -40,7 +40,7 @@ extension RootTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,9 +52,6 @@ extension RootTableViewController {
             
         case 1:
             cell.textLabel?.text = "UITableView的分页功能"
-            
-        case 2:
-            cell.textLabel?.text = "测试present modally下的status bar"
             
         default:
             break
@@ -70,9 +67,6 @@ extension RootTableViewController {
             
         case 1:
             performSegue(withIdentifier: "RootPushToPaingTableVC", sender: self)
-            
-        case 2:
-            performSegue(withIdentifier: "ModalToDemoPage", sender: self)
             
         default:
             break

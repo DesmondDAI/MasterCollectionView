@@ -12,7 +12,7 @@ class PagingTableViewController: UIViewController {
 
     @IBOutlet weak var pagingTableView: UITableView!
     
-    let miniOffsetBeyondBound: CGFloat = 100
+    let miniOffsetBeyondBound: CGFloat = 64
     var textDataArray = [String]()
     
     override func viewDidLoad() {
@@ -39,7 +39,7 @@ class PagingTableViewController: UIViewController {
     }
     
     func requestTextData() {
-        let newDataArray = DataManager.sharedInstance.generateTextArray(count: 10)
+        let newDataArray = DataManager.sharedInstance.generateTextArray(count: 20)
         textDataArray.append(contentsOf: newDataArray)
         pagingTableView.reloadData()
     }

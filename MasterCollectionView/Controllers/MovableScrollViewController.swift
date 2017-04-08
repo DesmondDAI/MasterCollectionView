@@ -14,18 +14,41 @@ class MovableScrollViewController: UIViewController {
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var bgImageHeightConstraint: NSLayoutConstraint!
     
+    let minScrollToHideShowStatusBar: CGFloat = 10
+    static let defaultScrollViewOffsetY: CGFloat = 120
+    
+    var lastScrollOffsetY: CGFloat = -defaultScrollViewOffsetY
     var panBeginLocation: CGPoint = CGPoint(x: 0, y: 0)
-    let defaultScrollViewInset: UIEdgeInsets = UIEdgeInsetsMake(184, 0, 0, 0)
+    let defaultScrollViewInset: UIEdgeInsets = UIEdgeInsetsMake(defaultScrollViewOffsetY, 0, 0, 0)
     var isNavigationBarSetup: Bool = false
+    var statusBarShouldHide = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupScrollView()
+        setupNavigationBar()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return statusBarShouldHide
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
     }
     
 
     // MARK: Internal Methods
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     private func setupScrollView() {
         scrollView.delegate = self
         // Add images
@@ -61,15 +84,28 @@ extension MovableScrollViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffsetY: CGFloat = scrollView.contentOffset.y
         print("offset Y: \(contentOffsetY)")
-      
+        
+        let scrollDiffY = contentOffsetY - self.lastScrollOffsetY
+        if  abs(scrollDiffY) > minScrollToHideShowStatusBar {  // Scroll larger than the size that triggers status bar animation
+            if contentOffsetY > -MovableScrollViewController.defaultScrollViewOffsetY && contentOffsetY < (scrollView.contentSize.height - UIScreen.main.bounds.height) {  // Forbit bouncing to affect staus bar show hide
+                self.lastScrollOffsetY = contentOffsetY
+                statusBarShouldHide = scrollDiffY > 0 ? true : false
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.setNeedsStatusBarAppearanceUpdate()
+                }, completion: { (_) in
+                    self.navigationController?.setNavigationBarHidden(self.statusBarShouldHide, animated: true)
+                })
+            }
+        }
+        
         if contentOffsetY > 0 {  // Remove inset in order to align indicator to the top
             scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
         }
         else {  // Add back inset and adjust indicator inset according to content offset
+            let bgImageHeight = contentOffsetY - 64
+            bgImageHeightConstraint.constant = abs(bgImageHeight < 0 ? bgImageHeight : 0)
             scrollView.contentInset = defaultScrollViewInset
             scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(abs(contentOffsetY), 0, 0, 0)
-            let bgImageHeight = contentOffsetY + 64
-            bgImageHeightConstraint.constant = abs(bgImageHeight < 0 ? bgImageHeight : 0)
         }
     }
 }

@@ -56,7 +56,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="1236"/>
+            <point key="canvasLocation" x="-1023" y="1270"/>
+        </scene>
+        <!--Paging Table View Controller-->
+        <scene sceneID="5Cb-mn-FDe">
+            <objects>
+                <viewController id="bCK-rE-wSm" customClass="PagingTableViewController" customModule="MasterCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="upw-yT-7ds"/>
+                        <viewControllerLayoutGuide type="bottom" id="W4X-b5-kob"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EoX-H9-Zrk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhD-LG-5Nn">
+                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="MIh-PY-ou6"/>
+                                    <constraint firstAttribute="width" constant="240" id="TQO-8P-TVs"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-bE-KbS">
+                                <rect key="frame" x="161" y="187" width="52" height="30"/>
+                                <state key="normal" title="dismiss"/>
+                                <connections>
+                                    <action selector="dismissBtnDidClick:" destination="bCK-rE-wSm" eventType="touchUpInside" id="8Cs-1V-puL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FhD-LG-5Nn" firstAttribute="top" secondItem="FQY-bE-KbS" secondAttribute="bottom" constant="52.5" id="L8t-dq-3VD"/>
+                            <constraint firstItem="FQY-bE-KbS" firstAttribute="centerX" secondItem="EoX-H9-Zrk" secondAttribute="centerX" id="dxR-fj-eaP"/>
+                            <constraint firstItem="FhD-LG-5Nn" firstAttribute="centerX" secondItem="EoX-H9-Zrk" secondAttribute="centerX" id="rdk-lO-8Yf"/>
+                            <constraint firstItem="FhD-LG-5Nn" firstAttribute="centerY" secondItem="EoX-H9-Zrk" secondAttribute="centerY" id="z6E-ic-Uhj"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XQ9-xL-fbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="974" y="957"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="emb-lo-QPT">
@@ -71,7 +113,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzd-zf-9Qz" id="VGE-c8-fVa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -82,13 +124,34 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ZRu-XW-7bs"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="IY3-6E-N4Z" kind="show" identifier="RootPushToMovableScrollView" id="wpt-Tj-E0B"/>
+                        <segue destination="LqK-hN-1Tr" kind="show" identifier="RootPushToPaingTableVC" id="Ybe-ks-PvB"/>
+                        <segue destination="bCK-rE-wSm" kind="presentation" identifier="ModalToDemoPage" id="9Qu-jV-fE8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PT1-rb-M2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-70" y="429"/>
+        </scene>
+        <!--Paging Table View Controller-->
+        <scene sceneID="4cw-Ve-Ob1">
+            <objects>
+                <viewController id="LqK-hN-1Tr" customClass="PagingTableViewController" customModule="MasterCollectionView" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E4x-5f-UBh"/>
+                        <viewControllerLayoutGuide type="bottom" id="HWo-KL-SUs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmm-2g-Kkt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2Y-YM-vEm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="974" y="242"/>
         </scene>
         <!--MovableScrollView-->
         <scene sceneID="CrR-PU-peg">
@@ -103,9 +166,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog_2" translatesAutoresizingMaskIntoConstraints="NO" id="rCd-g8-QyJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="184"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Sse-PD-BMr"/>
+                                    <constraint firstAttribute="height" constant="184" id="Sse-PD-BMr"/>
                                 </constraints>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UW-gK-EMG">
@@ -115,7 +179,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rCd-g8-QyJ" firstAttribute="top" secondItem="tT4-QR-ZbS" secondAttribute="bottom" id="Lit-cR-VRi"/>
+                            <constraint firstItem="rCd-g8-QyJ" firstAttribute="top" secondItem="dbI-g6-Mg4" secondAttribute="top" id="LSK-fg-5Mg"/>
                             <constraint firstItem="rCd-g8-QyJ" firstAttribute="leading" secondItem="dbI-g6-Mg4" secondAttribute="leading" id="VWm-mE-aSL"/>
                             <constraint firstAttribute="trailing" secondItem="5UW-gK-EMG" secondAttribute="trailing" id="g8r-vh-F9B"/>
                             <constraint firstItem="5UW-gK-EMG" firstAttribute="leading" secondItem="dbI-g6-Mg4" secondAttribute="leading" id="lSh-he-BDJ"/>
@@ -125,7 +189,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MovableScrollView" id="vHQ-F6-KGb"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="bgImage" destination="rCd-g8-QyJ" id="lmh-Cg-b4T"/>
                         <outlet property="bgImageHeightConstraint" destination="Sse-PD-BMr" id="eK1-50-rpo"/>
@@ -134,15 +197,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32C-Rp-Em6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="-93"/>
+            <point key="canvasLocation" x="974" y="-475"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wly-Ha-bb5">
             <objects>
                 <navigationController id="NJg-bn-n2g" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x9D-D4-hlc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99382048845291138" green="0.44794863018627856" blue="0.38626483208336426" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xrw-PF-my8" kind="relationship" relationship="rootViewController" id="u4K-Vj-11d"/>
